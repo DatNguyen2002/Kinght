@@ -51,9 +51,14 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(moving * speed, rb.velocity.y);// su ly di chuyen theo chieu x
 
         //su ly nhay theo chieu y
-        if (Input.GetButtonDown("Jump"))// neu nut dc an thi se thay doi chieu cao nhan vat
+        if (Input.GetButtonDown("Jump") && IsGrounded())// neu nut dc an thi se thay doi chieu cao nhan vat
         {
             rb.velocity =new Vector2(rb.velocity.x, jumpForce);
         }
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 }

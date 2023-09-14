@@ -350,7 +350,7 @@ MonoBehaviour:
   groundCheck: {fileID: 1192609860}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!50 &1192609862
 Rigidbody2D:
   serializedVersion: 4
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 1918771107}
   - component: {fileID: 1918771106}
   - component: {fileID: 1918771105}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
