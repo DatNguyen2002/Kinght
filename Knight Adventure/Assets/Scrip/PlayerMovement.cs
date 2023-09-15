@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Tilemaps;
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateMovementState()
     {
         MovementState state;
-        
+        //nếu moving khác 0 thì sẽ ở trạng thái running bằng 0 ở trạng thái Idle
         state =(moving!=0)?MovementState.running:MovementState.idel;
         Flip();
 
@@ -59,13 +59,16 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity =new Vector2(rb.velocity.x, jumpForce);
         }
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+
+        //nhảy cao hơn khi giữ 
+        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)// nếu mà nhả nút và nhân vật ở trên không
         {
+            //tốc độ sẽ giảm tốc
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
     }
 
-    private bool IsGrounded()
+    private bool IsGrounded()// kiểm tra nhân vật có ở tren mặt đất hay không
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
